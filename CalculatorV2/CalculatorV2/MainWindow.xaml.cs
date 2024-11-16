@@ -51,7 +51,8 @@ namespace CalculatorV2
         {
             if (number == 0)
             {
-                MessageBox.Show("Unable to devide by zero", "ERROR", MessageBoxButton.OK, MessageBoxImage.Error); // показываем сообщение
+                error(1);
+
                 ClearAll(); 
                 return false;
             }
@@ -72,16 +73,30 @@ namespace CalculatorV2
         {
 
         }
+        private void error(int code) // вывод диалогового окна с ошибкой, произошедшей при использовании калькулятора
+        {
+            MessageBox.Show(Convert.ToString((ErrorCodes)code), "ERROR", MessageBoxButton.OK, MessageBoxImage.Error);
+            ClearAll();
+        }
 
         /// <summary>
         /// затем идет перечисление основных переменных для работы калькулятора
         /// </summary>
 
         string sentence = ""; // тут хранится математическое выражение введеное пользователем
-        string value; // тут хранится текущее значение введеное пользователем, будь-то цифра, число или знак
+        string value = ""; // тут хранится текущее значение введеное пользователем, будь-то цифра, число или знак
 
         bool FirstIteration = true; // позволит проверить в в первые ли пользователь что-то вводит
         bool NumberTyping = false; // отслеживает печатает ли поьзователь число или вводит математический знак
+
+        public enum ErrorCodes // список ошибок которые возможны при использовании калькулятора
+        {
+            ImposibleToDevideByZero = 1,
+            ValueNotAllowedToBeRaisetToAPower = 3,
+            MissingValue = 5,
+            UnnabledToFindFactorial = 6,
+            UnableToPerformCalculations = 10
+        }
 
         /// <summary>
         /// ниже прописаны основные оброботчики кнопок
@@ -89,7 +104,6 @@ namespace CalculatorV2
 
         private void Number_Click(object sender, RoutedEventArgs e) // функция передающая выобранную цифру
         {
-
             if (!NumberTyping) // если последние введенное заначение это символ, то он записыватеся в выражение и value очищается
             {
                 sentence += value;
@@ -112,44 +126,77 @@ namespace CalculatorV2
             value = " " + symbol + " ";
 
             type();
-
         }
         private void Degree(object sender, RoutedEventArgs e) // функция возводящая ранее введеное число в степеь
         {
-            isFirst();
+            if (value == "") error(5);
+            else
+            {
+                try
+                {
+                    isFirst();
 
-            isNumberTyping();
-            value = " ^ ";
+                    isNumberTyping();
+                    value = " ^ ";
 
-            type();
+                    type();
+                }
+                catch
+                {
+                    error(3);
+                }
+
+            }
         }
         private void Notation(object sender, RoutedEventArgs e) // цуенкия переводящая число пользователя в иную систему счисления
         {
-            isFirst();
-            isNumberTyping();
+            if (value == "") error(5);
+            else
+            {
+                try
+                {
+                    isFirst();
+                    isNumberTyping();
 
-            value = " to ";
+                    value = " to ";
 
-            type();
+                    type();
+                }
+                catch 
+                {
+                    error(10); 
+                }
+            }
         }
         private void Factorial(object sender, RoutedEventArgs e) // функция находящая факториал из числа пользователя
         {
-            isFirst();
-            isNumberTyping();
-
-            double nDone = 1;
-
-            for (int i = 1; i < Convert.ToDouble(value) + 1; i++)
+            if (value == "") error(5);
+            else
             {
-                nDone *= i;
+                try
+                {
+                isFirst();
+                isNumberTyping();
+
+                double nDone = 1;
+
+                for (int i = 1; i < Convert.ToDouble(value) + 1; i++)
+                {
+                    nDone *= i;
+                }
+
+                value = Convert.ToString(nDone);
+                CalculationProcessText.Text = sentence + "!";
+                sentence = "";
+                NumberTyping = true;
+
+                type();
+                }
+                catch
+                {
+                    error(6);
+                }
             }
-
-            value = Convert.ToString(nDone);
-            CalculationProcessText.Text = sentence + "!";
-            sentence = "";
-            NumberTyping = true;
-
-            type();
         }
 
         /// <summary>
@@ -162,6 +209,8 @@ namespace CalculatorV2
         }
         public void calculate() // фукция для вычисления введеной математической формулы и ее отображения
         {
+            try
+            {
             if (NumberTyping) sentence += value; // записываев в выражение последнее введенное число
             value = "";
 
@@ -208,6 +257,11 @@ namespace CalculatorV2
             NumberTyping = true;
 
             type();
+            }
+            catch
+            {
+                error(10);
+            }
         }
     }
 }
