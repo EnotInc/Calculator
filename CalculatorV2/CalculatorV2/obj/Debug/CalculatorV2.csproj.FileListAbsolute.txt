@@ -1,0 +1,16 @@
+C:\да\Программы\C#\CalculatorV2\CalculatorV2\obj\Debug\CalculatorV2.csproj.AssemblyReference.cache
+C:\да\Программы\C#\CalculatorV2\CalculatorV2\obj\Debug\CalculatorV2.csproj.SuggestedBindingRedirects.cache
+C:\да\Программы\C#\CalculatorV2\CalculatorV2\obj\Debug\App.g.cs
+C:\да\Программы\C#\CalculatorV2\CalculatorV2\obj\Debug\CalculatorV2_MarkupCompile.cache
+C:\да\Программы\C#\CalculatorV2\CalculatorV2\obj\Debug\MainWindow.g.cs
+C:\да\Программы\C#\CalculatorV2\CalculatorV2\obj\Debug\CalculatorV2_MarkupCompile.lref
+C:\да\Программы\C#\CalculatorV2\CalculatorV2\bin\Debug\CalculatorV2.exe.config
+C:\да\Программы\C#\CalculatorV2\CalculatorV2\bin\Debug\CalculatorV2.exe
+C:\да\Программы\C#\CalculatorV2\CalculatorV2\bin\Debug\CalculatorV2.pdb
+C:\да\Программы\C#\CalculatorV2\CalculatorV2\obj\Debug\MainWindow.baml
+C:\да\Программы\C#\CalculatorV2\CalculatorV2\obj\Debug\CalculatorV2.g.resources
+C:\да\Программы\C#\CalculatorV2\CalculatorV2\obj\Debug\CalculatorV2.Properties.Resources.resources
+C:\да\Программы\C#\CalculatorV2\CalculatorV2\obj\Debug\CalculatorV2.csproj.GenerateResource.cache
+C:\да\Программы\C#\CalculatorV2\CalculatorV2\obj\Debug\CalculatorV2.csproj.CoreCompileInputs.cache
+C:\да\Программы\C#\CalculatorV2\CalculatorV2\obj\Debug\CalculatorV2.exe
+C:\да\Программы\C#\CalculatorV2\CalculatorV2\obj\Debug\CalculatorV2.pdb
