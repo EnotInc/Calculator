@@ -1,2 +1,1 @@
-# Calculator
- Some Practise Work for collage
+Сделанно в рамках практический работы для колледжа
