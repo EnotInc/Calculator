@@ -1,2 +1,2 @@
 # Calculator
- Some Practise Work for callage
+ Some Practise Work for collage
